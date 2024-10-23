@@ -10,11 +10,14 @@ Kickstart.nvim targets *only* the latest
 ['nightly'](https://github.com/neovim/neovim/releases/tag/nightly) of Neovim.
 If you are experiencing issues, please make sure you have the latest versions.
 
-In a debian environment the apt don't install the latest stable version, so we need to do some work-around. The easiest way is to install `guix` and use that to install nvim
+In a debian environment the apt don't install the latest stable version, so we need to do some work-around. The way I did was installing from source.
 ```
-sudo apt install guix
-sudo guix package --install neovim
-``
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
+```
+Then add this to ~/.bashrc
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 
 ### Install External Dependencies
